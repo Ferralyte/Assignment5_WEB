@@ -1,0 +1,390 @@
+/* CSS Reset & General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: #f1f5f9;
+  background-color: #0b0f19;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background: #111827;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  border: 1px solid #1f2937;
+}
+
+h1 {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Navigation Menu */
+.task-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  border: 2px solid #374151;
+  background-color: #1f2937;
+  color: #9ca3af;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: #374151;
+  color: #ffffff;
+  border-color: #4b5563;
+}
+
+.nav-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+}
+
+.nav-btn.active {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Task Sections */
+.task-section {
+  display: none;
+  background: #111827;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  border: 1px solid #1f2937;
+}
+
+.task-section.active {
+  display: block;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  border-bottom: 2px solid #1f2937;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Controls & Buttons */
+button {
+  cursor: pointer;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #2563eb;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+}
+
+button:disabled {
+  background-color: #374151;
+  color: #6b7280;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Form & Input Styles */
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #1f2937;
+  color: #ffffff;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #111827;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+  color: #f87171;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  min-height: 16px;
+  display: block;
+}
+
+.error-summary {
+  color: #fca5a5;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding: 12px;
+  background-color: rgba(239, 68, 68, 0.15);
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+}
+
+.error-summary:empty {
+  display: none;
+}
+
+.success-result {
+  background-color: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 15px;
+  color: #34d399;
+  font-weight: 500;
+}
+
+.message {
+  font-style: italic;
+  margin: 10px 0;
+  color: #9ca3af;
+}
+
+/* Task 1 Styles */
+.game-card {
+  background: #1f2937;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #374151;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.game-battle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 20px 0;
+  background: #111827;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+}
+
+.battle-item {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  word-break: break-word;
+  padding: 10px;
+  background: #1f2937;
+  border-radius: 8px;
+  border: 1px solid #374151;
+}
+
+.battle-vs {
+  font-size: 22px;
+  font-weight: 800;
+  color: #3b82f6;
+  text-transform: uppercase;
+  padding: 0 10px;
+  user-select: none;
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+/* Task 2 Styles */
+.kanban-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.kanban-controls input, .kanban-controls select {
+  flex: 1;
+  min-width: 160px;
+  margin: 0;
+}
+
+.progress-container {
+  margin-bottom: 15px;
+  background: #1f2937;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+}
+
+progress {
+  width: 100%;
+  height: 14px;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #374151;
+  border-radius: 7px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #3b82f6;
+  border-radius: 7px;
+}
+
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+}
+
+.kanban-column {
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 10px;
+  padding: 15px;
+  min-height: 280px;
+}
+
+.kanban-column h3 {
+  font-size: 15px;
+  color: #e5e7eb;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #374151;
+  padding-bottom: 6px;
+}
+
+.kanban-card {
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kanban-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-color: #4b5563;
+}
+
+.card-meta {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.card-actions button {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+/* Task 3 Styles */
+.creator-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.preview-card {
+  border: 3px solid #3b82f6;
+  padding: 20px;
+  border-radius: 10px;
+  background: #1f2937;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.preview-card ul {
+  list-style-type: none;
+  margin-top: 12px;
+}
+
+.preview-card li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #374151;
+  font-weight: 500;
+  color: #d1d5db;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .creator-container {
+    grid-template-columns: 1fr;
+  }
+  body {
+    padding: 10px;
+  }
+  .task-section {
+    padding: 15px;
+  }
+  .game-battle-container {
+    flex-direction: column;
+  }
+}

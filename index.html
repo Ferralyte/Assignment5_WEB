@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment #5 - JavaScript Basics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Assignment #5: JavaScript Basics</h1>
+    <nav class="task-nav">
+      <button class="nav-btn active" data-target="task1">Task 1: Higher/Lower</button>
+      <button class="nav-btn" data-target="task2">Task 2: Kanban Board</button>
+      <button class="nav-btn" data-target="task3">Task 3: Character Creator</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- TASK 1 -->
+    <section id="task1" class="task-section active">
+      <h2>Task 1. Browser Game (Higher or Lower)</h2>
+      <div class="game-card">
+        <p>Lives: <strong id="lives">3</strong> | Current Streak: <strong id="streak">0</strong> | Best: <strong id="best-streak">0</strong></p>
+        
+        <div class="game-battle-container">
+          <div class="battle-item" id="item-left">--</div>
+          <div class="battle-vs">VS</div>
+          <div class="battle-item" id="item-right">--</div>
+        </div>
+
+        <div class="game-controls">
+          <button id="btn-higher" type="button">Higher (↑)</button>
+          <button id="btn-lower" type="button">Lower (↓)</button>
+        </div>
+        <p id="game-message" class="message">Click Higher or Lower to guess the next number!</p>
+        <button id="btn-restart" type="button" style="display: none; margin-top: 10px;">Play Again</button>
+      </div>
+    </section>
+
+    <!-- TASK 2 -->
+    <section id="task2" class="task-section">
+      <h2>Task 2. Kanban Board</h2>
+      <div class="kanban-controls">
+        <input type="text" id="search-input" placeholder="Search tasks by title...">
+        <select id="filter-tag">
+          <option value="">All Tags</option>
+          <option value="Frontend">Frontend</option>
+          <option value="Backend">Backend</option>
+          <option value="Design">Design</option>
+          <option value="Testing">Testing</option>
+        </select>
+        <select id="sort-priority">
+          <option value="default">Default Order</option>
+          <option value="high-to-low">Priority: High to Low</option>
+        </select>
+      </div>
+
+      <div class="progress-container">
+        <label>Overall Completion: <span id="progress-text">0%</span></label>
+        <progress id="kanban-progress" value="0" max="100"></progress>
+      </div>
+
+      <p id="kanban-message" class="error-message" style="font-size: 14px; font-weight: bold;"></p>
+
+      <div class="kanban-board" id="kanban-board">
+        <div class="kanban-column">
+          <h3>To Do</h3>
+          <div class="task-list" data-column="todo"></div>
+        </div>
+        <div class="kanban-column">
+          <h3>In Progress (Max 3)</h3>
+          <div class="task-list" data-column="inprogress"></div>
+        </div>
+        <div class="kanban-column">
+          <h3>Done</h3>
+          <div class="task-list" data-column="done"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASK 3 -->
+    <section id="task3" class="task-section">
+      <h2>Task 3. Character Creator Form</h2>
+      <div class="creator-container">
+        
+        <form id="character-form">
+          <div id="form-error-summary" class="error-summary" aria-live="polite"></div>
+
+          <div>
+            <label for="char-name">Character Name:</label>
+            <input type="text" id="char-name" required minlength="3" maxlength="15">
+            <span class="error-message" id="error-char-name"></span>
+          </div>
+
+          <div>
+            <label for="char-class">Class:</label>
+            <select id="char-class" required>
+              <option value="">-- Select Class --</option>
+              <option value="Mage">Mage (Requires Magic ≥ 5)</option>
+              <option value="Warrior">Warrior (Requires Strength ≥ 6)</option>
+              <option value="Rogue">Rogue (Requires Agility ≥ 6)</option>
+            </select>
+            <span class="error-message" id="error-char-class"></span>
+          </div>
+
+          <div>
+            <label for="char-color">Theme Color:</label>
+            <input type="color" id="char-color" value="#ff4500" style="height: 40px; padding: 2px;">
+            <span class="error-message" id="error-char-color"></span>
+          </div>
+
+          <div style="margin-top: 15px;">
+            <h3>Skills (Points left: <span id="points-left">20</span> / 20)</h3>
+            
+            <label for="skill-strength">Strength (1-10):</label>
+            <input type="number" id="skill-strength" class="skill-input" min="1" max="10" value="5">
+
+            <label for="skill-agility">Agility (1-10):</label>
+            <input type="number" id="skill-agility" class="skill-input" min="1" max="10" value="5">
+
+            <label for="skill-magic">Magic (1-10):</label>
+            <input type="number" id="skill-magic" class="skill-input" min="1" max="10" value="5">
+
+            <label for="skill-vitality">Vitality (1-10):</label>
+            <input type="number" id="skill-vitality" class="skill-input" min="1" max="10" value="5">
+            
+            <span class="error-message" id="error-skills"></span>
+          </div>
+
+          <button type="submit" id="btn-submit-char">Create Character</button>
+        </form>
+
+        <div class="character-preview">
+          <h3>Live Preview</h3>
+          <div class="preview-card" id="preview-card-box">
+            <h4 id="preview-name">Name: [Not Set]</h4>
+            <p>Class: <strong id="preview-class">None</strong></p>
+            <ul>
+              <li>Strength: <span id="prev-str">5</span></li>
+              <li>Agility: <span id="prev-agi">5</span></li>
+              <li>Magic: <span id="prev-mag">5</span></li>
+              <li>Vitality: <span id="prev-vit">5</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="character-result" class="success-result" style="display: none;"></div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navButtons = document.querySelectorAll('.nav-btn');
+      const sections = document.querySelectorAll('.task-section');
+
+      navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          navButtons.forEach(b => b.classList.remove('active'));
+          sections.forEach(s => s.classList.remove('active'));
+
+          btn.classList.add('active');
+          const targetId = btn.getAttribute('data-target');
+          document.getElementById(targetId).classList.add('active');
+        });
+      });
+    });
+  </script>
+
+  <script src="task1.js" defer></script>
+  <script src="task2.js" defer></script>
+  <script src="task3.js" defer></script>
+
+</body>
+</html>
